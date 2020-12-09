@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 
 Route::get('/sample', function () {
@@ -34,11 +34,13 @@ Route::get('blade', 'bladController@index');
 Route::view('404', '404');
 // Route::view('profile', 'profile');
 
+Route::view('profile', 'profile')->middleware('customRoutedMiddleware');
+
 Route::group(['middleware'=>['userAuth']], function(){
 		
-		Route::get('/', function () {
-		    return view('welcome');
-		});
-		Route::view('profile', 'profile');
+		// Route::get('/', function () {
+		//     return view('welcome');
+		// });
+
 
 });

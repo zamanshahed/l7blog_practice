@@ -43,9 +43,9 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-        'userAuth'=>[
-            \App\Http\Middleware\CheckAge::class,
-        ],
+        // 'userAuth'=>[
+        //     \App\Http\Middleware\CheckAge::class,
+        // ],
     ];
 
     /**
@@ -56,6 +56,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'customRoutedMiddleware'=> \App\Http\Middleware\CheckAge::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
